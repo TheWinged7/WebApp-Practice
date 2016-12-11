@@ -9,10 +9,21 @@
     <body>
         <main>
             <form id="tweet-form" action="/tweets/create" method="POST">
-                <input id="tweet-form-handle" type="text" name="handle" placeholder="DonkkaShane">
+                <input id="tweet-form-handle" type="text" name="handle" placeholder="Kitten">
                 <textarea id="tweet-form-body" name="body" placeholder="What's happening?"></textarea>
                 <button id="tweet-form-button">Tweet</button>
             </form>
+
+            <% for(var i = 0; i < tweets.length; i++) { %>
+               <% var tweet = tweets[i]; %>
+                    <article class="twat">
+                        <p> <a href = "/"> @<%= tweet.handle %> </a>
+                            <span class="light-grey"> - <%= tweet.time_from_now %> </span></p>
+                        <P><%= tweet.body %></P>
+                    </article>
+            <% } %>
+
+
         </main>
     </body>
 </html>
